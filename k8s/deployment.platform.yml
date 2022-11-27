@@ -21,7 +21,7 @@ spec:
             - name: PORT
               value: "8080"
             - name: DATABASE_URL
-              value: "postgres://postgres:postgres@db:5432/postgres?sslmode=disable"
+              value: "postgres://postgres:postgres@localhost:5432/postgres?sslmode=disable"
           resources:
             limits:
               cpu: 500m
@@ -43,3 +43,7 @@ spec:
               value: "--encoding=UTF-8"
             - name: POSTGRES_HOST_AUTH_METHOD
               value: "trust"
+          resources:
+            limits:
+              cpu: 500m
+              memory: 512Mi
