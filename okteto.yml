@@ -1,3 +1,2 @@
 deploy:
-  - kubectl apply -f k8s/deployment.platform.yml --namespace=fs-morning-night-dreamer
-  - kubectl apply -f k8s/service.platform.yml --namespace=fs-morning-night-dreamer
+  - helm install ./k8s --generate-name --namespace=fs-morning-night-dreamer
