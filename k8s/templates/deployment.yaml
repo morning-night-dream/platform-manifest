@@ -19,7 +19,7 @@ spec:
           image: morningnightdream/platform:latest
           env:
             - name: PORT
-              value: {{ .Values.port }}
+              value: "{{ .Values.port }}"
             - name: DATABASE_URL
               value: "postgres://postgres:postgres@localhost:5432/postgres?sslmode=disable"
             - name: API_KEY
