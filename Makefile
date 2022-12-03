@@ -16,4 +16,4 @@ encrypt:
 		--encrypted-regex '^(data|stringData)$$' \
 		--in-place \
 		k8s/templates/secret.yaml
-	@yamlfmt
+	@yamlfmt k8s/templates/secret.yaml
