@@ -23,7 +23,10 @@ spec:
             - name: DATABASE_URL
               value: "postgres://postgres:postgres@localhost:5432/postgres?sslmode=disable"
             - name: API_KEY
-              value: "{{ .Values.apikey }}"
+              valueFrom:
+                secretKeyRef:
+                  name: mysecret
+                  key: apikey
           resources:
             limits:
               cpu: 500m
