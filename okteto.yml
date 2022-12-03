@@ -1,2 +1,2 @@
 deploy:
-  - helm install platform ./k8s --namespace=fs-morning-night-dreamer
+  - helm install morning-night-dream-platform ./k8s --namespace=fs-morning-night-dreamer
