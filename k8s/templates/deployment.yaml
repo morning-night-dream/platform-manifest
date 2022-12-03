@@ -19,9 +19,11 @@ spec:
           image: morningnightdream/platform:latest
           env:
             - name: PORT
-              value: "8080"
+              value: {{ .Values.port }}
             - name: DATABASE_URL
               value: "postgres://postgres:postgres@localhost:5432/postgres?sslmode=disable"
+            - name:
+              value: {{ .Values.apikey }}
           resources:
             limits:
               cpu: 500m
