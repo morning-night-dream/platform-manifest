@@ -12,6 +12,11 @@ age-keygen
 
 3. 秘密鍵を`Octeto`の`Settings` > `Secrets`に、`SOPS_AGE_KEY`という名前で設定
 
+## Change secret
+
+1. `secret.yml`の`data.{シークレット名}`を新しい値に書き換える
+2. `make encrypt`を実行
+
 ## decode secret value
 
 ```sh
