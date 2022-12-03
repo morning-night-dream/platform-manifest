@@ -25,7 +25,7 @@ spec:
             - name: API_KEY
               valueFrom:
                 secretKeyRef:
-                  name: mysecret
+                  name: platform-secret
                   key: API_KEY
           resources:
             limits:
