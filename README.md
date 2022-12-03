@@ -2,15 +2,17 @@
 
 ## initialize
 
+1. `make tool`でツールをインストール
+
 1. [age](https://github.com/FiloSottile/age)で鍵を生成
+  
+    ```
+    age-keygen
+    ```
 
-```
-age-keygen
-```
+1. 公開鍵を`Makefile`の`AGE_PUBLIC_KEY`に設定
 
-2. 公開鍵を`Makefile`の`encrypt`の`AGE_PUBLIC_KEY`に設定
-
-3. 秘密鍵を`Octeto`の`Settings` > `Secrets`に、`SOPS_AGE_KEY`という名前で設定
+1. 秘密鍵を`Octeto`の`Settings` > `Secrets`に、`SOPS_AGE_KEY`という名前で設定
 
 ## Change secret
 
