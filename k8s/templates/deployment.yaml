@@ -1,9 +1,9 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
+  name: platform
   labels:
     app: platform
-  name: platform
 spec:
   replicas: 1
   selector:
@@ -23,58 +23,7 @@ spec:
             - name: DATABASE_URL
               value: "postgres://postgres:postgres@localhost:5432/postgres?sslmode=disable"
             - name: API_KEY
-              value: {{ .Values.apikey }}
-          resources:
-            limits:
-              cpu: 500m
-              memory: 512Mi
-        - name: db
-          image: postgres:14.6-alpine
-          env:
-            - name: TZ
-              value: "UTC"
-            - name: LANG
-              value: "ja_JP.UTF-8"
-            - name: POSTGRES_DB
-              value: "postgres"
-            - name: POSTGRES_USER
-              value: "postgres"
-            - name: POSTGRES_PASSWORD
-              value: "postgres"
-            - name: POSTGRES_INITDB_ARGS
-              value: "--encoding=UTF-8"
-            - name: POSTGRES_HOST_AUTH_METHOD
-              value: "trust"
-          resources:
-            limits:
-              cpu: 500m
-              memory: 512Mi
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  labels:
-    app: platform
-  name: platform
-spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      app: platform
-  template:
-    metadata:
-      labels:
-        app: platform
-    spec:
-      containers:
-        - name: platform
-          image: morningnightdream/platform:latest
-          env:
-            - name: PORT
-              value: {{ .Values.port }}
-            - name: DATABASE_URL
-              value: "postgres://postgres:postgres@localhost:5432/postgres?sslmode=disable"
-            - name: API_KEY
-              value: {{ .Values.apikey }}
+              value: "{{ .Values.apikey }}"
           resources:
             limits:
               cpu: 500m
