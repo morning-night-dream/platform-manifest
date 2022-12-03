@@ -1,6 +1,6 @@
 #!/bin/sh -eu
 
-uname -a
+apt-get install wget
 
 GO_VERSION=1.19.3
 
