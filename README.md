@@ -18,6 +18,7 @@
 
 1. `secret-{シークレット名}.yaml`を追加し、`data.{シークレット名}`に対応するシークレット値を入れる
 2. `make encrypt secret-{シークレット名}.yaml`を実行
+3. `scripts/sops.sh`のシークレットの復号化処理に`./sops --decrypt --in-place k8s/templates/secret-{シークレット名}.yaml`を追記
 
 ## Change secret
 
