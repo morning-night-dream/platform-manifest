@@ -1,4 +1,4 @@
-name: lint
+name: manifest lint
 on:
   push:
     branches:
