@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: platform
-          image: morningnightdream/platform:v20221206151844
+          image: platform:v20221210135236
           env:
             - name: PORT
               value: "{{ .Values.port }}"
