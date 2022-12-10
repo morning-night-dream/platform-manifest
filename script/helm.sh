@@ -1,7 +1,9 @@
 #!/bin/sh -eu
 
-if [ $(helm list | wc -l) -le 1 ]; then
-  helm install morning-night-dream-platform ./k8s --namespace=fs-morning-night-dreamer
+NAME_SPACE=fs-morning-night-dreamer
+
+if [ $(helm list --namespace ${NAME_SPACE} | wc -l) -le 1 ]; then
+  helm install morning-night-guild-platform ./k8s --namespace=${NAME_SPACE}
 else
-  helm upgrade --force morning-night-dream-platform ./k8s --namespace=fs-morning-night-dreamer
+  helm upgrade morning-night-guild-platform ./k8s --namespace=${NAME_SPACE}
 fi
