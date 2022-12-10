@@ -17,3 +17,7 @@ encrypt:
 		--in-place \
 		k8s/templates/${SECRET_FILE_NAME}
 	@yamlfmt k8s/templates/${SECRET_FILE_NAME}
+
+.PHONY: decrypt
+decrypt:
+	@sops --decrypt --in-place k8s/templates/${SECRET_FILE_NAME}
