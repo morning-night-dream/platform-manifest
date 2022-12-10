@@ -16,6 +16,6 @@ jobs:
       - name: Install yq
         run: wget https://github.com/mikefarah/yq/releases/latest/download/yq_linux_amd64 -O yq && sudo chmod +x yq
       - name: Docker pull
-        run: | 
+        run: |
           image=$(yq '.spec.template.spec.containers.[0].image' k8s/templates/deployment.yaml)
-          echo ${image}
+          docker pull ${image}
