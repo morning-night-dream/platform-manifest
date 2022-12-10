@@ -1,0 +1,21 @@
+name: check
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    paths:
+      - .github/workflows/check.yaml
+      - k8s/templates/deployment.yaml
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Install yq
+        run: wget https://github.com/mikefarah/yq/releases/latest/download/yq_linux_amd64 -O /usr/bin/yq && chmod +x /usr/bin/yq
+      - name: Docker pull
+        run: | 
+          image=$(yq '.spec.template.spec.containers.[0].image' k8s/templates/deployment.yaml)
+          echo ${image}
