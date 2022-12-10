@@ -21,7 +21,10 @@ spec:
             - name: PORT
               value: "{{ .Values.port }}"
             - name: DATABASE_URL
-              value: "postgres://postgres:postgres@localhost:5432/postgres?sslmode=disable"
+              valueFrom:
+                secretKeyRef:
+                  name: platform-database-url
+                  key: DATABASE_URL
             - name: API_KEY
               valueFrom:
                 secretKeyRef:
