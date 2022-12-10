@@ -5,7 +5,7 @@ on:
       - main
   pull_request:
     paths:
-      - .github/workflows/check.yaml
+      - .github/workflows/container.check.yaml
       - k8s/templates/deployment.yaml
 jobs:
   check:
