@@ -12,4 +12,5 @@ mv sops-v${SOPS_VERSION}.linux.amd64 sops
 
 chmod +x sops
 
-./sops --decrypt --in-place k8s/templates/secret.yaml
+./sops --decrypt --in-place k8s/templates/secret-api-key.yaml
+./sops --decrypt --in-place k8s/templates/secret-database-url.yaml
