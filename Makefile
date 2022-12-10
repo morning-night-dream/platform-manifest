@@ -1,3 +1,5 @@
+SHELL=/bin/bash
+
 .PHONY: tool
 tool:
 	@aqua i
@@ -10,6 +12,7 @@ AGE_PUBLIC_KEY=age1jglwyzrn80auhq0k93mv8zqn5ezt6ngsdvhjn23nwfh0quq7wussn2tdm3
 
 .PHONY: encrypt
 encrypt:
+	@if [ -z "${SECRET_FILE_NAME}" ]; then echo "Please specify SECRET_FILE_NAME"; exit 1; fi	
 	@yq -i "(del.sops)" k8s/templates/${SECRET_FILE_NAME}
 	@sops --encrypt \
 		--age ${AGE_PUBLIC_KEY} \
