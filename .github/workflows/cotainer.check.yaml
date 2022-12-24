@@ -18,7 +18,7 @@ jobs:
         run: wget https://github.com/mikefarah/yq/releases/latest/download/yq_linux_amd64 -O yq && sudo chmod +x yq
       - name: Docker pull
         run: |
-          organization=${yq '.image.organization' k8s/values.yaml}
+          organization=$(yq '.image.organization' k8s/values.yaml)
           repository=$(yq '.image.repository' k8s/values.yaml)
           tag=$(yq '.image.tag' k8s/env/prod.yaml)
           docker pull ${organization}/${repository}:${tag}
