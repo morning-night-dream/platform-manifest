@@ -1,2 +1,2 @@
 image:
-  tag: v20221223154604
+  tag: env(IMAGE_TAG)
