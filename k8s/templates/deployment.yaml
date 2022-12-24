@@ -16,11 +16,10 @@ spec:
     spec:
       containers:
         - name: platform
-          image: morningnightdream/platform:v20221223154604
-          imagePullPolicy: IfNotPresent
+          image: {{ .Values.image.organization }}/{{ .Values.image.repository }}:{{ .Values.image.tag }}
           env:
             - name: PORT
-              value: "{{ .Values.port }}"
+              value: "8080"
             - name: DATABASE_URL
               valueFrom:
                 secretKeyRef:
