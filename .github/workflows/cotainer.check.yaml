@@ -20,5 +20,5 @@ jobs:
         run: |
           organization=$(yq '.image.organization' k8s/values.yaml)
           repository=$(yq '.image.repository' k8s/values.yaml)
-          tag=$(yq '.image.tag' k8s/env/prod.yaml)
+          tag=$(yq '.image.tag' k8s/env/prod/values.yaml)
           docker pull ${organization}/${repository}:${tag}
